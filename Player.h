@@ -13,6 +13,9 @@ public:
     void Update();
     void Draw();
 
+    void MoveRight();
+    void MoveLeft();
+
     int GetPosX() const override { return m_posX; }
     int GetPosY() const override { return m_posY; }
     int GetRadius() const override { return kRadius; }

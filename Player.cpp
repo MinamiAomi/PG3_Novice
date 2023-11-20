@@ -12,20 +12,6 @@ void Player::Initialize(BulletManager* bulletManager) {
 void Player::Update() {
     InputManager* inputManager = InputManager::GetInstance();
 
-    if (inputManager->IsPressed(DIK_D)) {
-        m_posX += kSpeedX;
-    }
-    if (inputManager->IsPressed(DIK_A)) {
-        m_posX += -kSpeedX;
-    }
-
-    if (inputManager->IsPressed(DIK_W)) {
-        m_posY += -kSpeedY;
-    }
-    if (inputManager->IsPressed(DIK_S)) {
-        m_posY += kSpeedY;
-    }
-
     if (inputManager->IsTrigger(DIK_SPACE)) {
         m_bulletManager->AddBullet(m_posX, m_posY);
     }
@@ -33,5 +19,13 @@ void Player::Update() {
 
 void Player::Draw() {
     Novice::DrawEllipse(m_posX, m_posY, kRadius, kRadius, 0.0f, WHITE, kFillModeSolid);
+}
+
+void Player::MoveRight() {
+    m_posX += kSpeedX;
+}
+
+void Player::MoveLeft() {
+    m_posX += -kSpeedX;
 }
 

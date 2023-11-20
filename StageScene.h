@@ -5,6 +5,7 @@
 #include "Player.h"
 #include "Enemy.h"
 #include "BulletManager.h"
+#include "InputHandler.h"
 
 class StageScene :
     public IScene {
@@ -19,4 +20,6 @@ private:
     Player m_player;
     std::vector<Enemy> m_enemys;
     BulletManager m_bulletManager;
+
+    InputHandler m_inputHandler;
 };

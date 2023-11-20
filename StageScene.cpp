@@ -5,6 +5,9 @@
 #include "ClearScene.h"
 
 void StageScene::OnInitialize() {
+    m_inputHandler.AssignMoveLeftCommandToPressKeyA();
+    m_inputHandler.AssignMoveRightCommandToPressKeyD();
+    
     m_player.Initialize(&m_bulletManager);
 
     constexpr int kNumEnemeys = 5;
@@ -21,6 +24,11 @@ void StageScene::OnInitialize() {
 }
 
 void StageScene::OnUpdate() {
+
+    auto command = m_inputHandler.HandleInput();
+    if (command) {
+        command->Excute(m_player);
+    }
 
     m_player.Update();
     for (auto& enemy : m_enemys) {
